@@ -27,11 +27,14 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ * -Counter1's count will be reset everytime the function is invoked, Counter 2 will stay.
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * -Counter 2 uses a closure but reach outside the function scope to read and update.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * -Counter 1 is better for keeping track of something while you are looping. Counter 2 is better for keeping "score" that you want to save for other uses.
+ * 
 */
 
 // counter1 code
@@ -56,11 +59,15 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  function getRandomInt(min = 0, max = 3) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+  return getRandomInt();
 }
+
 
 /* Task 3: finalScore()
 
@@ -76,10 +83,8 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, num){
+  
 }
 
 /* Task 4: 
@@ -103,7 +108,7 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
+function scoreboard(getInningScore, inning, num) {
   /* CODE HERE */
 }
 
